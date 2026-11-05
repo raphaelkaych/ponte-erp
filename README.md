@@ -2,6 +2,8 @@
 
 > Laboratório de integração de pedidos via webhook.
 
+**[Abra a demonstração no navegador](https://raphael-kaych.raphaelvindex.chatgpt.site/demos/ponte-erp)** para assinar um evento fictício e testar duplicidade, conflito e assinatura inválida. A versão local abaixo executa o receptor HTTP em Python.
+
 Se o emissor perde a resposta de um webhook, ele pode reenviar o mesmo evento. O receptor valida a assinatura HMAC-SHA256 do corpo bruto e grava o pedido no SQLite. As chaves únicas de evento e pedido impedem a duplicação, inclusive com reenvios concorrentes.
 
 | Situação | HTTP |
