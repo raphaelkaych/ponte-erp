@@ -6,9 +6,9 @@
 | --- | --- | --- |
 | O emissor reenvia o webhook quando perde a resposta, às vezes em paralelo. | Validar o HMAC do corpo bruto e deduplicar evento e pedido com chaves únicas na mesma transação. | Reenvios concorrentes criam um único pedido; outro valor com o mesmo ID recebe `409`. [`test_ponte.py`](test_ponte.py) |
 
-**[Abra a demonstração no navegador](https://raphael-kaych.raphaelvindex.chatgpt.site/demos/ponte-erp)** para assinar um evento fictício e testar duplicidade, conflito e assinatura inválida. A versão local abaixo executa o receptor HTTP em Python.
+**[Abra a demonstração no navegador](https://raphael-kaych.raphaelkaych.workers.dev/demos/ponte-erp)** para assinar um evento fictício e testar duplicidade, conflito e assinatura inválida. A versão local abaixo executa o receptor HTTP em Python.
 
-[Estudo de caso e arquitetura](https://raphael-kaych.raphaelvindex.chatgpt.site/projetos/ponte-erp)
+[Estudo de caso e arquitetura](https://raphael-kaych.raphaelkaych.workers.dev/projetos/ponte-erp)
 
 Se o emissor perde a resposta de um webhook, ele pode reenviar o mesmo evento. O receptor valida a assinatura HMAC-SHA256 do corpo bruto e grava o pedido no SQLite. As chaves únicas de evento e pedido impedem a duplicação, inclusive com reenvios concorrentes.
 
