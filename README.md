@@ -2,6 +2,10 @@
 
 > Laboratório de integração de pedidos via webhook.
 
+| Problema | Decisão | Resultado verificável |
+| --- | --- | --- |
+| O emissor reenvia o webhook quando perde a resposta, às vezes em paralelo. | Validar o HMAC do corpo bruto e deduplicar evento e pedido com chaves únicas na mesma transação. | Reenvios concorrentes criam um único pedido; outro valor com o mesmo ID recebe `409`. [`test_ponte.py`](test_ponte.py) |
+
 **[Abra a demonstração no navegador](https://raphael-kaych.raphaelvindex.chatgpt.site/demos/ponte-erp)** para assinar um evento fictício e testar duplicidade, conflito e assinatura inválida. A versão local abaixo executa o receptor HTTP em Python.
 
 [Estudo de caso e arquitetura](https://raphael-kaych.raphaelvindex.chatgpt.site/projetos/ponte-erp)
